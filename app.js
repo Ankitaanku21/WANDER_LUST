@@ -1,3 +1,6 @@
+import 'dotenv/config';
+console.log(process.env.SECRET);
+
 import express from 'express';
 const app = express();
 import mongoose from 'mongoose';
