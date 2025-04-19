@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+const { Schema, model } = mongoose;
+
 
 const reviewSchema = new Schema({
     comment: String,
@@ -12,8 +13,10 @@ const reviewSchema = new Schema({
         type: Date,
         default: Date.now(),
     },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
 });
 
-const Listing = mongoose.model("Review",reviewSchema);
-
-export default Listing; 
+export default model("Review", reviewSchema); 
