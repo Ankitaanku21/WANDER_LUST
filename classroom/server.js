@@ -18,7 +18,7 @@ app.use("/users", users);
 app.use("/posts", posts);
 app.use(cookieParser("secretcode"));
 
-const sessionOptions = ({secret: "mysupersectrstring", resave: false, saveUninitialized:true});
+const sessionOptions = ({secret: "mysupersecterstring", resave: false, saveUninitialized:true});
 
 app.use(session(sessionOptions));
 app.use(flash());

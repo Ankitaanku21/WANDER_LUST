@@ -43,12 +43,22 @@ export async function renderEditForm(req, res){
         req.flash("error", "Listing you are requested doesn't exist");
         res.redirect("/listings");
     }
-    res.render("listings/edit.ejs", { listing });
+
+    let OriginalImageUrl = listing.image.url;
+    OriginalImageUrl = OriginalImageUrl.replace("/upload", "/upload/h_300,w_250")
+    res.render("listings/edit.ejs", { listing, OriginalImageUrl });
 }
 
 export async function updateListing(req, res){
-    const { id } = req.params;
-    let listing = await Listing.findById(id);
+    let { id } = req.params;
+    let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing });
+    let url = req.file.path;
+
+    if(typeof req.file !== "undefined"){
+        let filename = req.file.filename;
+        listing.image = {url, filename};
+        await listing.save();
+    }
     if (!req.body.listing) {
         throw new ExpressError(400, "Send valid data for listing");
     }
@@ -74,6 +84,20 @@ export async function destroyListing(req, res) {
     res.redirect("/listings");
 }
 
+//This function is to render the listings belonged to that category
+export const getCategory=async(req,res)=>{
+    let {icon}=req.query;
+    console.log(icon);
+    let listing=await Listing.find({category:icon});
+    console.log(listing);
+    if(listing.length>0){
+        console.log("listing")
+        res.render("listings/iconDetail.ejs",{listing});
+        console.log("Afetee");
+    }else{
+        res.render("/listings")
+    }
+}
 
 export default {
     index,
@@ -83,5 +107,6 @@ export default {
     renderEditForm,
     updateListing,
     destroyListing,
+    getCategory,
   };
   
