@@ -1,16 +1,19 @@
 <% layout("layouts/boilerplate") %>
 <body>
-    <h2>All the Listings of this category<%=listing.category%></h2>
-    <% for( let list of listing){%>
-            <div class="card col listing-card" style="width: 20rem; ">
-                <img src="<%= list.image.url %>" class="card-img-top" style="height:20rem;" >
-                <div class="card-img-overlay"></div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <b><%= list.title %> <br></b>
-                    &#8377; <%= list.price %> / night
-                    </p>
+    <h2><%=icon%> Listings</h2>
+    <br>
+    <div class="row">
+        <% for( let list of listing){%>
+                <div class="card col listing-card col-md-6 mb-6" style="width: 20rem;">
+                    <img src="<%= list.image.url %>" class="card-img-top" style="height:20rem; display:flex;" >
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                    <p class="card-text">
+                        <b><%= list.title %> <br></b>
+                        &#8377; <%= list.price %> / night
+                        </p>
+                    </div>
                 </div>
-              </div>
-   <% }%>
+        <% }%>
+    </div>
 </body>

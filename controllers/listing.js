@@ -91,9 +91,7 @@ export const getCategory=async(req,res)=>{
     let listing=await Listing.find({category:icon});
     console.log(listing);
     if(listing.length>0){
-        console.log("listing")
-        res.render("listings/iconDetail.ejs",{listing});
-        console.log("Afetee");
+        res.render("listings/iconDetail.ejs",{listing,icon});
     }else{
         res.render("/listings")
     }
