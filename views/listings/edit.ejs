@@ -41,6 +41,25 @@
                 <label for="country" class="form-label">Country</label>
                 <input type="text" name="listing[country]" value="<%= listing.country %> " class="form-control" required> 
             </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label" > Choose Suitable Category</label>
+                <div class="valid-feedback">Category should be valid</div>
+                <select id="category"  name="listing[category]" class="form-control" placeholder="Choose suitable Category">
+                    <option selected value="<%= listing.category %>"><%= listing.category %></option>
+                    <option value="Trending">Trending</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Iconic Cities">Iconic Cities</option>
+                    <option value="Mountain">Mountain</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Amazing pools">Amazing pools</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Boats">Boats</option>
+                </select>
+            </div>
             
             <button class="btn btn-dark edit-btn mt-3">Edit</button> <br>
         </form>

@@ -18,6 +18,6 @@ router
 router.post("/login",saveRedirectUrl, passport.authenticate("local", {failureRedirect: "/login", failureFlash: true}),
     userController.login);
 
-router
+router.get("/logout", userController.logout);
 
 export default router;

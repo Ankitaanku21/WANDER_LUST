@@ -28,6 +28,7 @@ export async function showListing(req, res){
 export async function createListing(req, res){
     let url = req.file.path;
     let filename = req.file.filename;
+
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = {url, filename};
@@ -52,9 +53,15 @@ export async function renderEditForm(req, res){
 export async function updateListing(req, res){
     let { id } = req.params;
     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing });
-    let url = req.file.path;
-
+    // if (req.file) {
+    //     listing.image = {
+    //       url: req.file.path,
+    //       filename: req.file.filename
+    //     };
+    //   }
+      
     if(typeof req.file !== "undefined"){
+        let url = req.file.path;
         let filename = req.file.filename;
         listing.image = {url, filename};
         await listing.save();

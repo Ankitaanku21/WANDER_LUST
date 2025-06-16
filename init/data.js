@@ -179,6 +179,7 @@ const sampleListings = [
       price: 2200,
       location: "Boston",
       country: "United States",
+      category: "Iconic Cities",
     },
     {
       title: "Beachfront Bungalow in Bali",
@@ -376,6 +377,110 @@ const sampleListings = [
       country: "Costa Rica",
       category: "Beach",
     },
+    {
+    title: "Clifftop Dome in Norway",
+    description:
+      "Experience the Northern Lights in this geodesic dome perched atop a scenic cliff in northern Norway.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1520190282873-afe1285c9a2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFyY3RpYyUyMGhvdXNlfGVufDB8fDB8fHww",
+    },
+    price: 2200,
+    location: "Tromsø",
+    country: "Norway",
+    category: "Arctic",
+  },
+  {
+    title: "Desert Tent Retreat in Morocco",
+    description:
+      "Sleep under the stars in this traditional Berber tent located in the heart of the Sahara Desert.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 900,
+    location: "Merzouga",
+    country: "Morocco",
+    category: "Rooms",
+  },
+  {
+    title: "Floating Bungalow in Thailand",
+    description:
+      "Stay afloat on the emerald waters of Khao Sok Lake in this beautiful wooden bungalow.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1669269704616-05abb2e1cd81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9hdCUyMGhvdXNlfGVufDB8fDB8fHww",
+    },
+    price: 1300,
+    location: "Khao Sok",
+    country: "Thailand",
+    category: "Boats",
+  },
+  {
+    title: "Stone Villa in the Tuscan Hills",
+    description:
+      "Relax in this charming villa surrounded by vineyards and olive groves in the heart of Tuscany.",
+    image: {
+      filename: "listingimage",
+      url: "https://plus.unsplash.com/premium_photo-1685133856025-c5b8383c92e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFybSUyMGhvdXNlfGVufDB8fDB8fHww",
+    },
+    price: 2700,
+    location: "Tuscany",
+    country: "Italy",
+    category: "Farms",
+  },
+  {
+    title: "Glass House in the Swiss Alps",
+    description:
+      "A modern glass home with panoramic views of snow-covered mountains and alpine meadows.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW91bnRhaW5zfGVufDB8fDB8fHww",
+    },
+    price: 4800,
+    location: "Zermatt",
+    country: "Switzerland",
+    category: "Mountains",
+  },
+  {
+    title: "Traditional Ryokan in Kyoto",
+    description:
+      "Immerse yourself in Japanese culture with tatami floors, hot springs, and seasonal cuisine.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1731875415616-097507b32dfc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    price: 1900,
+    location: "Kyoto",
+    country: "Japan",
+    category: "Iconic Cities",
+  },
+  {
+    title: "Countryside Barn Stay in England",
+    description:
+      "Cozy converted barn in the Cotswolds surrounded by rolling hills and scenic walking paths.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1731875667792-238033cd9b6c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    price: 1450,
+    location: "Cotswolds",
+    country: "United Kingdom",
+    category: "Iconic Cities",
+  },
+  {
+    title: "Cave Home in Cappadocia",
+    description:
+      "Stay inside a historic cave carved into the rock formations of Cappadocia, with hot air balloons overhead.",
+    image: {
+      filename: "listingimage",
+      url: "https://plus.unsplash.com/premium_photo-1681255760839-6581e2eb3e96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGxhY2VzfGVufDB8fDB8fHww",
+    },
+    price: 1600,
+    location: "Göreme",
+    country: "Turkey",
+    category: "Beach",
+  },
   ];
   
   export default {data: sampleListings};
