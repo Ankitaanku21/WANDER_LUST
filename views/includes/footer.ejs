@@ -1,64 +1,18 @@
-<style>
-  footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #ddd;
-    padding: 1rem 0;
-    margin-top: 2rem;
-  }
-  .f-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 1rem;
-  }
-  .f-info-socials a {
-    color: #444;
-    font-size: 1.3rem;
-    margin: 0 0.5rem;
-    transition: color 0.3s;
-  }
-  .f-info-socials a:hover {
-    color: #fe424d;
-  }
-  .f-info-brand {
-    font-weight: 500;
-    color: #555;
-  }
-  .f-info-links a {
-    color: #555;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-  }
-  .f-info-links a:hover {
-    color: #fe424d;
-  }
-</style>
-
 <footer>
-  <div class="f-info">
-    <!-- Social Icons -->
-    <div class="f-info-socials">
-      <a href="https://www.facebook.com/AirbnbIndia"><i class="fa-brands fa-square-facebook"></i></a>
-      <a href="https://www.instagram.com/airbnb"><i class="fa-brands fa-square-instagram"></i></a>
-      <a href="https://www.linkedin.com/company/airbnb/"><i class="fa-brands fa-linkedin"></i></a>
+    <div class="f-info">
+        <div class="f-info-socials">
+            <a href="https://www.facebook.com/AirbnbIndia"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://www.instagram.com/airbnb"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/airbnb/"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div class="f-info-brand">
+            &copy; <%= new Date().getFullYear() %> Wanderlust Private Limited
+        </div>
+        <div class="f-info-links">
+            <a href="/privacy">Privacy</a> &nbsp;&nbsp;
+            <a href="/terms">Terms</a> &nbsp;&nbsp;
+            <a href="/companyDetails">Company Details</a>
+        </div>
+        
     </div>
-
-    <!-- Brand -->
-    <div class="f-info-brand f-info-links">
-      &copy; <%= new Date().getFullYear() %> Wanderlust Private Limited
-    </div>
-
-    <!-- Links -->
-    <div class="f-info-links">
-      <a href="/privacy">Privacy</a> &nbsp;&nbsp;
-      <a href="/terms">Terms</a> &nbsp;&nbsp;
-      <a href="/companyDetails">Company Details</a>
-    </div>
-  </div>
 </footer>

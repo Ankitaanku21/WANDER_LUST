@@ -3,7 +3,6 @@
 <style>
     .filter {
         text-align: center;
-        margin-top: 1rem;
         opacity: 0.7;
     }
     .filter:hover {
@@ -13,18 +12,17 @@
     .filter p {
         font-size: 0.8rem;
     }
+    .tax-info {
+        display: none;
+    }
     .tax-toggle {
         border: 1px solid black;
         border-radius: 1rem;
+        height: 3.5rem;
         padding: 1rem;
         margin-top: 1rem;
         display: flex;
         align-items: center;
-    }
-    label.form-check-label {
-        white-space: normal; 
-        word-break: break-word; 
-        margin-left: 0.5rem; 
     }
 </style>
 
@@ -76,23 +74,37 @@
     <h3 class="text-center text-danger mt-4"><%= message %></h3>
 <% } %>
 
+<!-- Listings Grid -->
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
     <% for (let listing of listings) { %>
-        <a href="/listings/<%= listing._id %>" class="listing_link" data-category="<%= listing.category %>">
-            <div class="card col listing-card w-100 w-md-auto" >
-                <img src="<%= listing.image.url %>" class="card-img-top" style="height:20rem;">
-                <div class="card-img-overlay"></div>
+        <a href="/listings/<%= listing._id %>" 
+           class="listing_link text-decoration-none" 
+           data-category="<%= listing.category %>">
+           
+            <div class="card col listing-card w-100 w-md-auto mb-4 rounded-3 shadow-sm">
+                <img src="<%= listing.image.url %>" 
+                     class="card-img-top rounded-top-3" 
+                     style="height:20rem; object-fit: cover;">
+                     
                 <div class="card-body">
-                    <p class="card-text">
-                        <b><%= listing.title %> <br></b>
+                    <p class="card-text mb-2">
+                        <b><%= listing.title %></b><br>
                         &#8377; <%= listing.price %> / night
-                        <i class="tax-info d-none d-md-inline">&nbsp;&nbsp;+18% GST</i>
+                        <i class="tax-info">&nbsp;&nbsp;+18% GST</i>
                     </p>
+                    <!-- Review & rating -->
+                    <% if (listing.rating) { %>
+                        <p class="text-warning mb-0">
+                            ⭐ <%= listing.rating %>/5
+                            (<%= listing.reviewsCount || 0 %> reviews)
+                        </p>
+                    <% } %>
                 </div>
             </div>
         </a>
     <% } %>
 </div>
+
 
 <script>
     // Toggle filters visibility
@@ -105,7 +117,6 @@
         const taxInfo = document.getElementsByClassName("tax-info");
         for (let info of taxInfo) {
             info.style.display = info.style.display !== "inline" ? "inline" : "none";
-            info.classList.toggle('d-none');
         }
     });
 

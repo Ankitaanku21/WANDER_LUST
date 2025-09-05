@@ -6,11 +6,9 @@ const userSchema = new Schema({
     email: { type: String },
     username: { type: String },
     googleId: { type: String },
-    facebookId: { type: String },
-    instagramId: { type: String },
 });
 
-//automatically implement username, password, hashing and salting
+//automatically implement username, password, hasing and salting
 userSchema.plugin(passportLocalMongoose);
 
 export default mongoose.model('User', userSchema);
