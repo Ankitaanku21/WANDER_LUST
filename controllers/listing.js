@@ -1,4 +1,11 @@
 import Listing from "../models/listing.js";
+import dotenv from "dotenv";
+dotenv.config();
+
+import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding.js';
+
+const mapToken = process.env.MAP_TOKEN;
+const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 export async function index(req, res){
     const allListings = await Listing.find({});
@@ -25,16 +32,32 @@ export async function showListing(req, res){
     res.render("listings/show.ejs", { listing });
 };
 
-export async function createListing(req, res){
+export async function createListing(req, res, next){
+    //for converting places to its corrdinates
+    let response = await geocodingClient.forwardGeocode({
+    query: req.body.listing.location,
+    limit: 1
+    })
+    .send();
+
     let url = req.file.path;
     let filename = req.file.filename;
 
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = {url, filename};
-    await newListing.save();
+    newListing.geometry = response.body.features[0].geometry;
+    let savedListing = await newListing.save();
+    console.log(savedListing);
     req.flash("success", "New Listing Created!");
     res.redirect("/listings");
+
+    listing.geometry = {
+    type: 'Point',
+    coordinates: [longitude, latitude]
+    };
+    await listing.save();
+
 }
 
 export async function renderEditForm(req, res){
@@ -82,6 +105,13 @@ export async function updateListing(req, res){
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });    
     req.flash("success", "Listing upadated!");
     res.redirect(`/listings/${id}`);
+
+    listing.geometry = {
+    type: 'Point',
+    coordinates: [longitude, latitude]
+};
+await listing.save();
+
 };
 
 export async function destroyListing(req, res) {

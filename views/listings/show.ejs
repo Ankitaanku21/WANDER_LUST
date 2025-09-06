@@ -1,4 +1,11 @@
 <% layout("layouts/boilerplate") %>
+
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+    const coordinates = <%- JSON.stringify(listing.geometry.coordinates )%>;
+</script>
+
+
 <div class="row">
     <!-- Title -->
     <div class="col-8 offset-2 mt-3">
@@ -22,7 +29,7 @@
     <!-- Edit / Delete Buttons -->
     <% if(currUser && currUser._id.equals(listing.owner._id)) {  %>
         <div class="btns">
-            <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-2 edit-btn">Edit</a>
+            <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark offset-2 edit-btn">Edit</a>
         
             <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-dark offset-4">Delete</button>
@@ -84,5 +91,15 @@
                 <% } %>
             </div>
         <% } %>
+        </div>
+
+    <!-- MapBox -->
+    <div class="col-8 offset-2 mb-3">
+        <h3>Where you'll be</h3>
+        <div id="map"></div>
     </div>
+    
+
 </div>
+
+<script src="/js/map.js"></script>

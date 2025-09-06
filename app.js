@@ -49,7 +49,7 @@
 // app.use(express.static(path.join(__dirname, "/public")));
 
 // const secretOptions = {
-//     secret: "mysecretcode",
+//     secret: process.env.SECRET,
 //     resave: false,
 //     saveUninitialized: false,
 //     cookie: {
