@@ -8,7 +8,7 @@ const userSchema = new Schema({
     googleId: { type: String },
 });
 
-//automatically implement username, password, hasing and salting
+//automatically implement username, password, hashing and salting
 userSchema.plugin(passportLocalMongoose);
 
 export default mongoose.model('User', userSchema);

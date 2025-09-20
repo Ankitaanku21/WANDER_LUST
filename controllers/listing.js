@@ -60,6 +60,7 @@ export async function createListing(req, res, next){
 
 }
 
+//this render form is for UI only
 export async function renderEditForm(req, res){
     const { id } = req.params;
     const listing = await Listing.findByIdAndUpdate(id);
@@ -73,15 +74,10 @@ export async function renderEditForm(req, res){
     res.render("listings/edit.ejs", { listing, OriginalImageUrl });
 }
 
+//actual update in backend happend with this funtion
 export async function updateListing(req, res){
     let { id } = req.params;
     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing });
-    // if (req.file) {
-    //     listing.image = {
-    //       url: req.file.path,
-    //       filename: req.file.filename
-    //     };
-    //   }
       
     if(typeof req.file !== "undefined"){
         let url = req.file.path;

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import initdata from "./data.js";
 import Listing from '../models/listing.js';
 import initdata from "../init/data.js";
 
